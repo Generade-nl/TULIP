@@ -85,7 +85,6 @@ bulb/eel.bundle_log				A log file
 For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.
 The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.
 
-
-
-
-
+For any questions please send us an e-mail using:
+m.liem@biology.leidenuniv.nl
+c.v.henkel@biology.leidenuniv.nl

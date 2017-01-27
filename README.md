@@ -11,7 +11,7 @@ Tulipseed takes as input alignments files of long reads to sparse short seeds, a
 1. **Input data**
 
 
-  _eel_seeds_285.fasta:_
+  _eel_seeds_285.fasta:_<br>
   These are pre-selected seed sequenced, with criteria 'not too repetitive'. Seeds containing repetitive sequence should be fine, but it will then take much longer to untangle the graph, and to optimize seed numbers. Strict requirements are that seed sequence names are unique numbers (excluding 0), and that all seeds are of exactly the same length.<br>
   ```
 Example file:
@@ -22,7 +22,7 @@ GTTGCAAGCATATTTTAGCATTCCTTTAGCTCAAAAGTTTCTCATTTTTTTCTTGCCCATTATCAACAGTGACAAATTCT
 >154
 TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAAATGATTTTATATATATTTTATATGATTACAGACAATGTGATTCATGAAGAAAATGTGGGCAGTCCTTTTCCCTGTAGCAAGGTCAGTAAAATAATAGTGACAGAATAATGTGCTTGACGTCTCTAATTTTACAATCTCATATACCACTGTATGCCTATGTGAGTCAAATATGATATAAAATTGAACATTATTATGTTTGTAATGG  
   ```
-  _long_reads.fasta:_
+  _long_reads.fasta:_<br>
   Long reads in FASTA format. The read names should be unique in each file, so be careful if you concatenate data!<br><br>
 
 
@@ -60,7 +60,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   ./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel
   ```
   
-  _This will generate the following files:_<br>
+  This will generate the following files:<br>
   ```
   tulip/eel.graph				The seed graph, text format
   tulip/eel.graph_tmp			The seed graph, binary format
@@ -85,7 +85,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   ```
   
   
-  _Columns indicate:_<br>
+  Columns indicate:<br>
   ```
   * Seed 1			Name of the first seed
   * Orientation		ii | io | oi | oo, how seeds are connected (in/out)

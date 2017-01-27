@@ -117,6 +117,8 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
 ##N.B. Prototype could include N's
 The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.<br>
 
-For any questions please send us an e-mail using:
+##For any questions please send us an e-mail using:
+```
 m.liem@biology.leidenuniv.nl
 c.v.henkel@biology.leidenuniv.nl
+```

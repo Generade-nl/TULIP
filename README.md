@@ -56,16 +56,17 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   ./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel
   ```
   
-This will generate the following files:
-tulip/eel.graph				The seed graph, text format
-tulip/eel.graph_tmp			The seed graph, binary format
-tulip/eel.scaffolds			Ordered seed scaffolds, text format
-tulip/eel.scaffolds_tmp		Ordered seed scaffolds, binary format
-tulip/eel.scaffolds			Ordered seed scaffolds, text format
-tulip/eel.seeds_tmp			Seed usage information
-tulip/eel.layout_log		A log file
-tulip/eel.scaffolds_stats	Length statistics per scaffold
-
+  _This will generate the following files:_<br>
+  ```
+  tulip/eel.graph				The seed graph, text format
+  tulip/eel.graph_tmp			The seed graph, binary format
+  tulip/eel.scaffolds			Ordered seed scaffolds, text format
+  tulip/eel.scaffolds_tmp		Ordered seed scaffolds, binary format
+  tulip/eel.scaffolds			Ordered seed scaffolds, text format
+  tulip/eel.seeds_tmp			Seed usage information
+  tulip/eel.layout_log			A log file
+  tulip/eel.scaffolds_stats		Length statistics per scaffold
+  ```
 The *_tmp files will be used by tulipbulb.perl.
 The .graph file simply list which seeds are connected in the final simplified graph: 
 100002	ii	3501405	10	1	432	559.5	585	43.4908036255942	2284

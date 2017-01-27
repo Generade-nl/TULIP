@@ -50,6 +50,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   sam	R941D_vs_285.shortsam	R9.4_pass_1d.fasta
   sam	R73_vs_285.shortsam		R7.3.fasta
   ```
+<br>
 
 4. **TULIP seed layout**
 
@@ -95,9 +96,12 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   * StDev			Standard deviation of the gap estimate
   * Scaffold		Final scaffold ID these seeds are included in
   ```
+<br>  
 
-5. TULIP bundling
-./tulipbulb --seeds eel_seeds_285.fasta --config alignments.txt --input tulip/eel --out bulb/eel
+5. **TULIP bundling**
+  ```
+  ./tulipbulb --seeds eel_seeds_285.fasta --config alignments.txt --input tulip/eel --out bulb/eel
+  ```
 
 This will add sequence from the original seeds and reads to the graph output by tulipseed.perl.
 

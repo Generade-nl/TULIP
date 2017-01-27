@@ -67,27 +67,31 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   tulip/eel.layout_log			A log file
   tulip/eel.scaffolds_stats		Length statistics per scaffold
   ```
-The *_tmp files will be used by tulipbulb.perl.
-The .graph file simply list which seeds are connected in the final simplified graph: 
-100002	ii	3501405	10	1	432	559.5	585	43.4908036255942	2284
-100002	oo	5662469	12	1	-60	-56.9166666666667	-53	2.75252409415229	2284
-1000042	ii	2229111	5	1	2120	2370.4	2587	190.044836814895	1019
-1000042	oi	6256249	4	1	3531	3656.5	3963	178.041427763316	1019
-1000048	io	5919951	6	1	1509	1540.33333333333	1628	40.4626027613428	1598
-1000048	oi	672698	7	1	1107	1149.57142857143	1225	34.4294605694315	1598
-1000049	ii	239093	3	1	629	646.333333333333	668	16.2138486760204	1193
-
-Columns are:
-Seed 1
-Orientation		ii|io|oi|oo, how the seeds are connected (in/out)
-Seed 2
-Evidence		The number of long read alignments connection these seeds
-Hypothetical	1 = actual link, 0 = inferred link
-Minimum			Minimum gap between the seeds observed in the alignments
-Mean			Mean gap between the seeds observed in the alignments
-Maximum			Maximum gap between the seeds observed in the alignments
-StDev			Standard deviation of the gap estimate
-Scaffold		Final scaffold ID these seeds are included in
+  The _.*_tmp_ files will be used by tulipbulb.perl.<br>
+  The _.graph_ file simply list which seeds are connected in the final simplified graph:<br>
+  
+  ```
+  100002	ii	3501405	10		1		 432	 559.50		 585	 43.49	2284
+  100002	oo	5662469	12		1		 -60	 -56.92		 -53	  2.75	2284
+  1000042	ii	2229111	 5		1		2120	2370.40		2587	190.04	1019
+  1000042	oi	6256249	 4		1		3531	3656.50		3963	178.04	1019
+  1000048	io	5919951	 6		1		1509	1540.33		1628	 40.46	1598
+  1000048	oi	672698	 7		1		1107	1149.57		1225	 34.42	1598
+  1000049	ii	239093	 3		1		 629	 646.33		 668	 16.21	1193
+  ```
+  
+  
+  _Columns indicate:_<br>
+  + Seed 1 <br>
+  * Orientation		ii|io|oi|oo, how the seeds are connected (in/out)<br>
+  * Seed 2<br>
+  * Evidence		The number of long read alignments connection these seeds<br>
+  * Hypothetical	1 = actual link, 0 = inferred link<br>
+  * Minimum			Minimum gap between the seeds observed in the alignments<br>
+  * Mean			Mean gap between the seeds observed in the alignments<br>
+  * Maximum			Maximum gap between the seeds observed in the alignments<br>
+  * StDev			Standard deviation of the gap estimate<br>
+  * Scaffold		Final scaffold ID these seeds are included in<br>
 
 
 5. TULIP bundling

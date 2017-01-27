@@ -119,6 +119,6 @@ The tulipbulb.perl script contains a bug which prevents it from adding sequence 
 
 ##For any questions please send us an e-mail using:
 ```
-m.liem@biology.leidenuniv.nl
+    m.liem@biology.leidenuniv.nl
 c.v.henkel@biology.leidenuniv.nl
 ```

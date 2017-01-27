@@ -8,7 +8,6 @@ Tulipseed takes as input alignments files of long reads to sparse short seeds, a
 
 1. Input data<br>
   **eel_seeds_285.fasta:**
- 
   These are pre-selected seed sequenced, with criteria 'not too repetitive'. Seeds containing repetitive sequence should be fine, but it will then take much longer to untangle the graph, and to optimize seed numbers. Strict requirements are that seed sequence names are unique numbers (excluding 0), and that all seeds are of exactly the same length.<br>
   ```
 Example file:

@@ -103,15 +103,19 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   ./tulipbulb --seeds eel_seeds_285.fasta --config alignments.txt --input tulip/eel --out bulb/eel
   ```
 
-This will add sequence from the original seeds and reads to the graph output by tulipseed.perl.
+  This will add sequence from the original seeds and reads to the graph output by tulipseed.perl.
 
-Output files are:
-bulb/eel_readbundle_999.fasta	The reads used to construct scaffold 999
-bulb/eel_scaffold_999.fasta		The sequence for scaffolds 999
-bulb/eel.bundle_log				A log file
+  Output files are:
+  ```
+  bulb/eel_readbundle_999.fasta		The reads used to construct scaffold 999
+  bulb/eel_scaffold_999.fasta		The sequence for scaffolds 999
+  bulb/eel.bundle_log				A log file
+  ```
+  
+  For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.<br><br>
 
-For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.
-The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.
+##N.B. Prototype could include N's
+The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.<br>
 
 For any questions please send us an e-mail using:
 m.liem@biology.leidenuniv.nl

@@ -94,7 +94,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   * Mean			Mean gap between the seeds observed in the alignments
   * Maximum			Maximum gap between the seeds observed in the alignments
   * StDev			Standard deviation of the gap estimate
-  * Scaffold		Final scaffold ID these seeds are included in
+  * Scaffold		Final scaffold ID
   ```
 <br>  
 

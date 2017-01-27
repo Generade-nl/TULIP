@@ -1,9 +1,9 @@
-Running TULIP (The Uncorrected Long-red Integration Process), version 0.4 late 2016 (European eel)
+#Running TULIP (The Uncorrected Long-red Integration Process), version 0.4 late 2016 (European eel)
 
 TULIP currently consists of to Perl scripts, tulipseed.perl and tulipbulb.perl. These are very much intended as prototypes, and additional components and/or implementations are likely to follow. <br>
 Tulipseed takes as input alignments files of long reads to sparse short seeds, and outputs a graph and scaffold structures. Tulipbulb adds long read sequencing data to these.<br>
 
-The steps below describe how we used TULIP to assemble the European eel genome:<br>
+##The steps below describe how we used TULIP to assemble the European eel genome:<br>
 
 1. Input data<br>
 eel_seeds_285.fasta: These are pre-selected seed sequenced, with criteria 'not too repetitive'. Seeds containing repetitive sequence should be fine, but it will then take much longer to untangle the graph, and to optimize seed numbers. Strict requirements are that seed sequence names are unique numbers (excluding 0), and that all seeds are of exactly the same length.<br>

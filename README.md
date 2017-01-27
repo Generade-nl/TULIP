@@ -21,12 +21,13 @@ GTTGCAAGCATATTTTAGCATTCCTTTAGCTCAAAAGTTTCTCATTTTTTTCTTGCCCATTATCAACAGTGACAAATTCT
 TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAAATGATTTTATATATATTTTATATGATTACAGACAATGTGATTCATGAAGAAAATGTGGGCAGTCCTTTTCCCTGTAGCAAGGTCAGTAAAATAATAGTGACAGAATAATGTGCTTGACGTCTCTAATTTTACAATCTCATATACCACTGTATGCCTATGTGAGTCAAATATGATATAAAATTGAACATTATTATGTTTGTAATGG  
   ```
   _long_reads.fasta:_
-  Long reads in FASTA format. The read names should be unique in each file, so be careful if you concatenate data!	
-<br>
+  Long reads in FASTA format. The read names should be unique in each file, so be careful if you concatenate data!<br>
 
 
-2. Alignments<br>
-We used BWA MEM to align reads to seeds, but other aligners should work. Currently, TULIP accepts SAM format (support for other formats, e.g. DALIGNER output, was present in even earlier versions and might reappear). Only the first 6 fileds of the SAM alignment information is used (up to and including the CIGAR string), so you might want to clip off the rest.
+2. **Alignments**
+
+
+  We used BWA MEM to align reads to seeds, but other aligners should work. Currently, TULIP accepts SAM format (support for other formats, e.g. DALIGNER output, was present in even earlier versions and might reappear). Only the first 6 fileds of the SAM alignment information is used (up to and including the CIGAR string), so you might want to clip off the rest.
 
 Command lines:
 bwa index -p 285_seeds eel_seeds_285.fasta

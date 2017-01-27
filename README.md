@@ -50,9 +50,12 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   sam	R73_vs_285.shortsam		R7.3.fasta
   ```
 
-4. TULIP seed layout
-./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel
+4. **TULIP seed layout**
 
+  ```
+  ./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel
+  ```
+  
 This will generate the following files:
 tulip/eel.graph				The seed graph, text format
 tulip/eel.graph_tmp			The seed graph, binary format

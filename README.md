@@ -23,7 +23,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   _long_reads.fasta:_
   Long reads in FASTA format. The read names should be unique in each file, so be careful if you concatenate data!<br>
 
-
+<br>
 2. **Alignments**
 
 
@@ -82,17 +82,18 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   
   
   _Columns indicate:_<br>
-  + Seed 1 <br>
-  * Orientation		ii|io|oi|oo, how the seeds are connected (in/out)<br>
-  * Seed 2<br>
-  * Evidence		The number of long read alignments connection these seeds<br>
-  * Hypothetical	1 = actual link, 0 = inferred link<br>
-  * Minimum			Minimum gap between the seeds observed in the alignments<br>
-  * Mean			Mean gap between the seeds observed in the alignments<br>
-  * Maximum			Maximum gap between the seeds observed in the alignments<br>
-  * StDev			Standard deviation of the gap estimate<br>
-  * Scaffold		Final scaffold ID these seeds are included in<br>
-
+  ```
+  * Seed 1			Name of the first seed
+  * Orientation		ii | io | oi | oo, how seeds are connected (in/out)
+  * Seed 2			Name of the second seed
+  * Evidence		The number of long read alignments connection these seeds
+  * Hypothetical	1 = actual link, 0 = inferred link
+  * Minimum			Minimum gap between the seeds observed in the alignments
+  * Mean			Mean gap between the seeds observed in the alignments
+  * Maximum			Maximum gap between the seeds observed in the alignments
+  * StDev			Standard deviation of the gap estimate
+  * Scaffold		Final scaffold ID these seeds are included in
+  ```
 
 5. TULIP bundling
 ./tulipbulb --seeds eel_seeds_285.fasta --config alignments.txt --input tulip/eel --out bulb/eel

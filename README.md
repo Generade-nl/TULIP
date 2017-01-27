@@ -29,21 +29,26 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
 
   We used BWA MEM to align reads to seeds, but other aligners should work. Currently, TULIP accepts SAM format (support for other formats, e.g. DALIGNER output, was present in even earlier versions and might reappear). Only the first 6 fileds of the SAM alignment information is used (up to and including the CIGAR string), so you might want to clip off the rest.
 
-Command lines:
-bwa index -p 285_seeds eel_seeds_285.fasta
-bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta | cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam
-bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam
-bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta | cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam
-bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam
+  Command lines:
+  ```
+  bwa index -p 285_seeds eel_seeds_285.fasta
+  bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta			| cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam  
+  bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta	| cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam  
+  bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta	| cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam  
+  bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta	| cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam  
+  ```
 
 
-3. Configuration
-When using multiple alignment files, you should specify their locations in a short configuration file, format type [tab] alignment [tab] original fasta:
-sam	R92D_vs_285.shortsam	R9_pass_2d.fasta
-sam	R91D_vs_285.shortsam	R9_pass_1d.fasta
-sam	R941D_vs_285.shortsam	R9.4_pass_1d.fasta
-sam	R73_vs_285.shortsam	R7.3.fasta
+3. **Configuration**
 
+
+  When using multiple alignment files, you should specify their locations in a short configuration file, format type [tab] alignment [tab] original fasta:
+  ```
+  sam	R92D_vs_285.shortsam	R9_pass_2d.fasta
+  sam	R91D_vs_285.shortsam	R9_pass_1d.fasta
+  sam	R941D_vs_285.shortsam	R9.4_pass_1d.fasta
+  sam	R73_vs_285.shortsam		R7.3.fasta
+  ```
 
 4. TULIP seed layout
 ./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel

@@ -1,4 +1,4 @@
-#Running TULIP (The Uncorrected Long-red Integration Process), version 0.4 late 2016 (European eel)
+#Running TULIP (The Uncorrected Long-read Integration Process), version 0.4 late 2016 (European eel)
 
 TULIP currently consists of to Perl scripts, tulipseed.perl and tulipbulb.perl. These are very much intended as prototypes, and additional components and/or implementations are likely to follow. <br>
 Tulipseed takes as input alignments files of long reads to sparse short seeds, and outputs a graph and scaffold structures. Tulipbulb adds long read sequencing data to these.<br><br>

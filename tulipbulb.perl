@@ -596,11 +596,14 @@ sub sam2Coords {
 	if ($flags[2]) { return (); } # unmapped
 	if ($_[5] =~ s/^(\d+)[HS]//) { $clip1 = $1; } # clipping at beginning of CIGAR
 	if ($_[5] =~ s/(\d+)[HS]$//) { $clip2 = $1; } # clipping at end of CIGAR
-	my @splitcigar = split /[MDISH]/,$_[5];
+#	my @splitcigar = split /[MDISH]/,$_[5];
+	my @splitcigar = split /[MDISHX=]/,$_[5];
 	my $cigarseed = 0; my $cigarread = 0; my $nomatchcount = 0;
 	while ($_[5]) {
-		$_[5] =~ s/(\d+)([MID])//;
-		if ($2 eq "M") { $cigarseed += $1; $cigarread += $1; }
+#		$_[5] =~ s/(\d+)([MID])//;
+#		if ($2 eq "M") { $cigarseed += $1; $cigarread += $1; }		
+		$_[5] =~ s/(\d+)([MIDX=])//;
+        	if (($2 eq "M") || ($2 eq "=") || ($2 eq "X")) { $cigarseed += $1; $cigarread += $1; }
 		if ($2 eq "I") { $cigarread += $1; $nomatchcount += $1; }
 		if ($2 eq "D") { $cigarseed += $1; $nomatchcount += $1; }
 		}

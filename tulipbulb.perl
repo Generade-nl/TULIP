@@ -212,8 +212,8 @@ sub graphStats { # note: modified to use a reference to %adjacency
 	foreach my $k1 (keys %{$adjacency}) {
 		$k1 =~ /^(.+)([io])$/;
 		$seeds{$1} = 1;
-		if ($2 eq "i") { $incount{scalar keys $$adjacency{$k1}}++; $connectioncount{scalar keys $$adjacency{$k1}}++; }
-		if ($2 eq "o") { $outcount{scalar keys $$adjacency{$k1}}++; $connectioncount{scalar keys $$adjacency{$k1}}++; }
+#		if ($2 eq "i") { $incount{scalar keys $$adjacency{$k1}}++; $connectioncount{scalar keys $$adjacency{$k1}}++; }
+#		if ($2 eq "o") { $outcount{scalar keys $$adjacency{$k1}}++; $connectioncount{scalar keys $$adjacency{$k1}}++; }
 		foreach my $k2 (keys %{$$adjacency{$k1}}) {
 			$length[0] += $$adjacency{$k1}{$k2}[2];
 			$length[1] += $$adjacency{$k1}{$k2}[3];

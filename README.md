@@ -66,7 +66,6 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   tulip/eel.graph_tmp			The seed graph, binary format
   tulip/eel.scaffolds			Ordered seed scaffolds, text format
   tulip/eel.scaffolds_tmp		Ordered seed scaffolds, binary format
-  tulip/eel.scaffolds			Ordered seed scaffolds, text format
   tulip/eel.seeds_tmp			Seed usage information
   tulip/eel.layout_log			A log file
   tulip/eel.scaffolds_stats		Length statistics per scaffold

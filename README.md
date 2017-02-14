@@ -89,7 +89,7 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   * Seed 1			Name of the first seed
   * Orientation		ii | io | oi | oo, how seeds are connected (in/out)
   * Seed 2			Name of the second seed
-  * Evidence		The number of long read alignments connection these seeds
+  * Evidence		The number of long read alignments connecting these seeds
   * Hypothetical	1 = actual link, 0 = inferred link
   * Minimum			Minimum gap between the seeds observed in the alignments
   * Mean			Mean gap between the seeds observed in the alignments

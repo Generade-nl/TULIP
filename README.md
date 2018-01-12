@@ -1,18 +1,20 @@
-#Running TULIP (The Uncorrected Long-read Integration Process), version 0.4 late 2016 (European eel)
+# Running TULIP (The Uncorrected Long-read Integration Process), version 0.4 late 2016 (European eel)
 
-TULIP currently consists of to Perl scripts, tulipseed.perl and tulipbulb.perl. These are very much intended as prototypes, and additional components and/or implementations are likely to follow. <br>
-Tulipseed takes as input alignments files of long reads to sparse short seeds, and outputs a graph and scaffold structures. Tulipbulb adds long read sequencing data to these.<br><br>
+TULIP currently consists of two Perl scripts, `tulipseed.perl` and `tulipbulb.perl`. These are very much intended as prototypes, and additional components and/or implementations are likely to follow.
 
-##The steps below describe how we used TULIP to assemble the European eel genome:<br>
+Tulipseed takes as input alignments files of long reads to sparse short seeds, and outputs a graph and scaffold structures.
 
-<br>
+Tulipbulb adds long read sequencing data to these.
 
+## The steps below describe how we used TULIP to assemble the European eel genome:
 
 1. **Input data**
 
 
-  _eel_seeds_285.fasta:_<br>
-  These are pre-selected seed sequenced, with criteria 'not too repetitive'. Seeds containing repetitive sequence should be fine, but it will then take much longer to untangle the graph, and to optimize seed numbers. Strict requirements are that seed sequence names are unique numbers (excluding 0), and that all seeds are of exactly the same length.<br>
+  _eel_seeds_285.fasta:_
+  
+  These are pre-selected seed sequenced, with selection criteria 'not too repetitive'. Seeds containing repetitive sequences should be fine, but it will then take much longer to untangle the graph, and to optimize seed numbers. Strict requirements are that seed sequence identifiers are unique numbers (excluding 0), and that all seeds are of exactly the same length.
+
   ```
 Example file:
 >53
@@ -22,25 +24,24 @@ GTTGCAAGCATATTTTAGCATTCCTTTAGCTCAAAAGTTTCTCATTTTTTTCTTGCCCATTATCAACAGTGACAAATTCT
 >154
 TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAAATGATTTTATATATATTTTATATGATTACAGACAATGTGATTCATGAAGAAAATGTGGGCAGTCCTTTTCCCTGTAGCAAGGTCAGTAAAATAATAGTGACAGAATAATGTGCTTGACGTCTCTAATTTTACAATCTCATATACCACTGTATGCCTATGTGAGTCAAATATGATATAAAATTGAACATTATTATGTTTGTAATGG  
   ```
-  _long_reads.fasta:_<br>
-  Long reads on one line and in FASTA format. The read names should be unique in each file, so be careful if you concatenate data!<br><br>
+  _long_reads.fasta:_
+  
+  Long reads on one line and in FASTA format. The read identifiers should be unique in each file, so be careful if you concatenate data!
 
 
 2. **Alignments**
 
 
-  We used BWA MEM to align reads to seeds, but other aligners should work. Currently, TULIP accepts SAM format (support for other formats, e.g. DALIGNER output, was present in even earlier versions and might reappear). Only the first 6 fileds of the SAM alignment information is used (up to and including the CIGAR string), so you might want to clip off the rest.
+  We used BWA MEM to align reads to seeds, but other aligners should work. Currently, TULIP accepts SAM format (support for other formats, e.g. DALIGNER output, was present in an earlier versions and might reappear). Only the first 6 fields of the SAM alignment information is used (up to and including the CIGAR string), so you might want to clip off the rest.
 
   Command lines:
   ```
   bwa index -p 285_seeds eel_seeds_285.fasta
-  bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta			| cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam  
-  bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta	| cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam  
-  bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta	| cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam  
-  bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta	| cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam  
+  bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta | cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam  
+  bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam  
+  bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta | cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam  
+  bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam  
   ```
-<br>
-
 
 3. **Configuration**
 
@@ -52,7 +53,6 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   sam	R941D_vs_285.shortsam	R9.4_pass_1d.fasta
   sam	R73_vs_285.shortsam		R7.3.fasta
   ```
-<br>
 
 4. **TULIP seed layout**
 
@@ -60,7 +60,8 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   ./tulipseed.perl --seedlength 285 --config alignments.txt --diploid --out tulip/eel
   ```
   
-  This will generate the following files:<br>
+  This will generate the following files:
+  
   ```
   tulip/eel.graph				The seed graph, text format
   tulip/eel.graph_tmp			The seed graph, binary format
@@ -70,8 +71,9 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   tulip/eel.layout_log			A log file
   tulip/eel.scaffolds_stats		Length statistics per scaffold
   ```
-  The _.*_tmp_ files will be used by tulipbulb.perl.<br>
-  The _.graph_ file simply list which seeds are connected in the final simplified graph:<br>
+  The _.*_tmp_ files will be used by `tulipbulb.perl`.
+  
+  The _.graph_ file simply lists which seeds are connected in the final simplified graph:
   
   ```
   100002	ii	3501405	10		1		 432	 559.50		 585	 43.49	2284
@@ -82,9 +84,9 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   1000048	oi	672698	 7		1		1107	1149.57		1225	 34.42	1598
   1000049	ii	239093	 3		1		 629	 646.33		 668	 16.21	1193
   ```
+
+  Columns indicate:
   
-  
-  Columns indicate:<br>
   ```
   * Seed 1			Name of the first seed
   * Orientation		ii | io | oi | oo, how seeds are connected (in/out)
@@ -97,14 +99,13 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   * StDev			Standard deviation of the gap estimate
   * Scaffold		Final scaffold ID
   ```
-<br>  
 
 5. **TULIP bundling**
   ```
   ./tulipbulb --seeds eel_seeds_285.fasta --config alignments.txt --input tulip/eel --out bulb/eel
   ```
 
-  This will add sequence from the original seeds and reads to the graph output by tulipseed.perl.
+  This will add sequence from the original seeds and reads to the graph output by `tulipseed.perl`.
 
   Output files are:
   ```
@@ -113,12 +114,13 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   bulb/eel.bundle_log				A log file
   ```
   
-  For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.<br><br>
+  For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.
 
-##N.B. Prototype could include N's
-The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.<br><br>
 
-##For any questions please send us an e-mail using:
+## N.B. Prototype could include N's
+The tulipbulb.perl script contains a bug which prevents it from adding sequence in rare cases (it will then add gaps, NNNs). We will fix this soon, and also add some additional output options.
+
+## For any questions please send us an e-mail using:
 ```
     m.liem@biology.leidenuniv.nl
 c.v.henkel@biology.leidenuniv.nl

@@ -36,11 +36,11 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
 
   Command lines:
   ```
-  bwa index -p 285_seeds eel_seeds_285.fasta
-  bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta | cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam  
-  bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam  
-  bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta | cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam  
-  bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam  
+bwa index -p 285_seeds eel_seeds_285.fasta
+bwa mem -t 4 -k 14 -W 45 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R7.3.fasta         | cut -f 1,2,3,4,5,6 > R73_vs_285.shortsam
+bwa mem -t 4 -k 16 -W 50 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_1d.fasta   | cut -f 1,2,3,4,5,6 > R91D_vs_285.shortsam
+bwa mem -t 4 -k 19 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9_pass_2d.fasta   | cut -f 1,2,3,4,5,6 > R92D_vs_285.shortsam
+bwa mem -t 4 -k 16 -W 60 -r 10 -A 1 -B 1 -O 1 -E 1 -L 0 285_seeds R9.4_pass_1d.fasta | cut -f 1,2,3,4,5,6 > R941D_vs_285.shortsam
   ```
 
 3. **Configuration**
@@ -48,10 +48,10 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
 
   When using multiple alignment files, you should specify their locations in a short configuration file, format type [tab] alignment [tab] original fasta:
   ```
-  sam	R92D_vs_285.shortsam	R9_pass_2d.fasta
-  sam	R91D_vs_285.shortsam	R9_pass_1d.fasta
-  sam	R941D_vs_285.shortsam	R9.4_pass_1d.fasta
-  sam	R73_vs_285.shortsam		R7.3.fasta
+sam     R92D_vs_285.shortsam    R9_pass_2d.fasta
+sam     R91D_vs_285.shortsam    R9_pass_1d.fasta
+sam     R941D_vs_285.shortsam   R9.4_pass_1d.fasta
+sam     R73_vs_285.shortsam     R7.3.fasta
   ```
 
 4. **TULIP seed layout**
@@ -63,13 +63,13 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   This will generate the following files:
   
   ```
-  tulip/eel.graph				The seed graph, text format
-  tulip/eel.graph_tmp			The seed graph, binary format
-  tulip/eel.scaffolds			Ordered seed scaffolds, text format
-  tulip/eel.scaffolds_tmp		Ordered seed scaffolds, binary format
-  tulip/eel.seeds_tmp			Seed usage information
-  tulip/eel.layout_log			A log file
-  tulip/eel.scaffolds_stats		Length statistics per scaffold
+tulip/eel.graph             The seed graph, text format
+tulip/eel.graph_tmp         The seed graph, binary format
+tulip/eel.scaffolds         Ordered seed scaffolds, text format
+tulip/eel.scaffolds_tmp     Ordered seed scaffolds, binary format
+tulip/eel.seeds_tmp         Seed usage information
+tulip/eel.layout_log        A log file
+tulip/eel.scaffolds_stats   Length statistics per scaffold
   ```
   The _.*_tmp_ files will be used by `tulipbulb.perl`.
   
@@ -88,16 +88,16 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
   Columns indicate:
   
   ```
-  * Seed 1			Name of the first seed
-  * Orientation		ii | io | oi | oo, how seeds are connected (in/out)
-  * Seed 2			Name of the second seed
-  * Evidence		The number of long read alignments connecting these seeds
-  * Hypothetical	1 = actual link, 0 = inferred link
-  * Minimum			Minimum gap between the seeds observed in the alignments
-  * Mean			Mean gap between the seeds observed in the alignments
-  * Maximum			Maximum gap between the seeds observed in the alignments
-  * StDev			Standard deviation of the gap estimate
-  * Scaffold		Final scaffold ID
+* Seed 1            Name of the first seed
+* Orientation       ii | io | oi | oo, how seeds are connected (in/out)
+* Seed 2            Name of the second seed
+* Evidence          The number of long read alignments connecting these seeds
+* Hypothetical      1 = actual link, 0 = inferred link
+* Minimum           Minimum gap between the seeds observed in the alignments
+* Mean              Mean gap between the seeds observed in the alignments
+* Maximum           Maximum gap between the seeds observed in the alignments
+* StDev             Standard deviation of the gap estimate
+* Scaffold          Final scaffold ID
   ```
 
 5. **TULIP bundling**
@@ -109,9 +109,9 @@ TTCTGAATTCCTTTAAGACTTCAAGGTGAATGGTGAATTAAAGTGCTGCCATCATATAGGCTGTTTAAAGGCAGTTTTAA
 
   Output files are:
   ```
-  bulb/eel_readbundle_999.fasta		The reads used to construct scaffold 999
-  bulb/eel_scaffold_999.fasta		The sequence for scaffolds 999
-  bulb/eel.bundle_log				A log file
+  bulb/eel_readbundle_999.fasta    The reads used to construct scaffold 999
+  bulb/eel_scaffold_999.fasta      The sequence for scaffolds 999
+  bulb/eel.bundle_log              A log file
   ```
   
   For each scaffold, two files are generated. The scaffold sequence shows sequence derived from seeds and long reads in upper and lower case, respectively.
